@@ -71,12 +71,6 @@ class UserUpdateForm(forms.ModelForm):
     #     if User.objects.filter(username=username).exists():
     #         raise forms.ValidationError("username not found already exists")
     #     return username
-
-    def clean_photo(self):
-        photo = self.cleaned_data.get('photo')
-        if User.objects.filter(photo=photo).exists():
-            raise forms.ValidationError("photo not found image already exists")
-        return photo
     
     def save(self, commit=True):
         user = super().save(commit)
