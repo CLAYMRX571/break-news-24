@@ -26,8 +26,8 @@
     </head>
 <body>
 
-     <!-- Topbar Start -->
-     <div class="container-fluid d-none d-lg-block">
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center bg-dark px-lg-5">
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
@@ -79,7 +79,7 @@
                 </a>
             </div>
             <div class="col-lg-8 text-center text-lg-right">
-                <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
+                <a href="https://htmlcodex.com"><img class="img-fluid" src="{% static 'img/ads-728x90.png' %}" alt=""></a>
             </div>
         </div>
     </div>
@@ -130,12 +130,12 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <div class="container">
+   
         
         {% block content %}
         {% endblock content %}
         
-        </div>
+     
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
