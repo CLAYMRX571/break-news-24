@@ -10,4 +10,4 @@ def get_main_context(request):
         "categories": categories,
         "latest_news": latest_news,
     }
-    return context
+    return context 
