@@ -32,7 +32,7 @@ class Article(BaseModel):
     views = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='articles') 
     tags = models.ManyToManyField(Tag, related_name='articles', blank=True)
-
+    
     def __str__(self):
         return f"{self.id} {self.title}"
 

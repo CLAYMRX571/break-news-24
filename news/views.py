@@ -10,14 +10,12 @@ class HomeView(View):
         articles = Article.objects.all()
         main_news = articles[:7]
         featured_news = articles.order_by("?")[:10]
-        latest_news = articles.order_by("-id")[:12]
 
         context = {
+            "articles": articles,
             "main_news": main_news,
             "featured_news": featured_news,
-            "latest_news": latest_news
         }
-
         return render(request, 'index.html', context)
 
 class ArticleDetailView(View):
