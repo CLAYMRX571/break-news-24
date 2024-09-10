@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Article
 from .forms import ContactForm
+from django.utils.text import slugify
 from django.contrib import messages
 # Create your views here.
 
@@ -19,11 +20,11 @@ class HomeView(View):
         return render(request, 'index.html', context)
 
 class ArticleDetailView(View):
-    def get(self, request, id):
-        article = get_object_or_404(Article, id=id)
+    def get(self, request, slug):
+        article = get_object_or_404(Article, slug=slug)
         article.views += 1
         article.save()
-        similiar_news = Article.objects.filter(category=article.category).exclude(id=id).order_by("?")[:4]
+        similiar_news = Article.objects.filter(category=article.category).exclude(id=article.id).order_by("?")[:4]
 
         context = {
             "article": article,

@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import User 
+from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
@@ -27,6 +28,7 @@ class Article(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
     title = models.CharField(max_length=255, unique=True)
     subtitle = models.CharField(max_length=255)
+    slug = models.SlugField(null=True, blank=True)
     image = models.ImageField(upload_to='articles')
     description = RichTextUploadingField()
     views = models.PositiveIntegerField(default=0)
