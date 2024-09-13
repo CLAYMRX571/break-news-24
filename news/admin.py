@@ -5,6 +5,7 @@ from .models import Category, Tag, Article, Contact
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'is_active', 'created_at')
+    prepopulated_fields = {"slug":["name"]}
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -16,6 +17,7 @@ class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = ('views', )
     prepopulated_fields = {"slug":["title"]}
     filter_horizontal = ('tags', )
+    list_editable = ('category', 'is_active', )
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
